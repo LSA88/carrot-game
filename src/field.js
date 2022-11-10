@@ -2,7 +2,6 @@
 
 import * as sound from "./sound.js";
 
-const carrotSound = new Audio("./sound/carrot_pull.mp3");
 const CARROT_SIZE = 80;
 
 export default class Field {
@@ -16,8 +15,8 @@ export default class Field {
 
   init() {
     this.field.innerHTML = "";
-    this._addItem("carrot", this.CARROT_COUNT, "img/carrot.png");
-    this._addItem("bug", this.BUG_COUNT, "img/bug.png");
+    this._addItem("carrot", this.carrotCount, "img/carrot.png");
+    this._addItem("bug", this.bugCount, "img/bug.png");
   }
 
   setClickListener(onItemClick) {
@@ -42,7 +41,7 @@ export default class Field {
     }
   }
 
-  onClick(evnet) {
+  onClick = evnet => {
     const target = evnet.target;
     if (target.matches(".carrot")) {
       target.remove();
@@ -51,7 +50,7 @@ export default class Field {
     } else if (target.matches(".bug")) {
       this.onItemClick && this.onItemClick("bug");
     }
-  }
+  };
 }
 
 function randomNumber(min, max) {
