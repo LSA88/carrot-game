@@ -12,6 +12,9 @@ export class Field {
   constructor(carrotCount, bugCount) {
     this.carrotCount = carrotCount;
     this.bugCount = bugCount;
+    
+    console.log('constructor',  document.querySelector(".game__field") );
+    
     this.field = document.querySelector(".game__field");
     this.fieldRect = this.field.getBoundingClientRect();
     this.field.addEventListener("click", this.onClick);
@@ -31,6 +34,10 @@ export class Field {
     const x1 = 0;
     const y1 = 0;
     const x2 = this.fieldRect.width - CARROT_SIZE;
+    
+    console.log('_addItem fieldRect',  document.querySelector(".game__field").getBoundingClientRect() );
+    this.fieldRect =  document.querySelector(".game__field").getBoundingClientRect();
+      
     const y2 = this.fieldRect.height - CARROT_SIZE;
     for (let i = 0; i < count; i++) {
       const item = document.createElement("img");
