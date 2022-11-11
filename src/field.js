@@ -59,5 +59,7 @@ export class Field {
 }
 
 function randomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+  let r =  Math.random();
+  console.log(r, max, min);
+  return (r * (max - min)) + min;
 }
